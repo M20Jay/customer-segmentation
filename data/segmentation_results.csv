@@ -1,0 +1,5 @@
+segment,Customers,Avg Monthly Charges,Churn Rate (%),Recommended Action
+Low Value Mid-Tenure,2219,27.22,26.86,Upsell to higher plan
+High Value At Risk,2043,75.17,28.29,Immediate retention call
+High Value Loyal,1696,89.72,24.29,Loyalty rewards programme
+Senior High Value,1074,83.37,25.98,Senior-specific offers

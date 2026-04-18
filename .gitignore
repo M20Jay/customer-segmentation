@@ -3,4 +3,4 @@ mflow.db
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-.DS_Store
+.DS_Storedata/
