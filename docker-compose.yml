@@ -1,0 +1,40 @@
+# ── docker-compose.yml ───────────────────────────────────────────
+# Runs 3 containers: FastAPI + PostgreSQL + Prometheus
+
+
+services:
+
+  seg_postgres:
+    image: postgres:15
+    container_name: seg_postgres
+    environment:
+      POSTGRES_DB: segmentation_db
+      POSTGRES_USER: martin
+      POSTGRES_PASSWORD: martin123
+    ports:
+      - "5434:5432"
+    volumes:
+      - seg_postgres_data:/var/lib/postgresql/data
+
+  seg_fastapi:
+    build: .
+    container_name: seg_fastapi
+    ports:
+      - "8001:8001"
+    environment:
+      DATABASE_URL: postgresql://martin:martin123@seg_postgres:5432/segmentation_db
+    depends_on:
+      - seg_postgres
+
+  seg_prometheus:
+    image: prom/prometheus:latest
+    container_name: seg_prometheus
+    ports:
+      - "9091:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - seg_fastapi
+
+volumes:
+  seg_postgres_data:
