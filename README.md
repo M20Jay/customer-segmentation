@@ -111,7 +111,8 @@ The optimal number of clusters (K=4) was determined using two complementary meth
 ![MLflow](screenshots/mlflow_experiment.png)
 
 ### Evidently Data Drift Report
-<img src="screenshots/evidently_drift_report.png" width="70%" alt="Evidently Data Drift Report"/>
+![Evidently Drift Report](screenshots/evidently_drift_report.png)
+
 ---
 
 ## How to Run Locally
