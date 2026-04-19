@@ -6,10 +6,10 @@ services:
     plan: free
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: segmentation-db
-          property: connectionString
+        value: postgresql://martin:martin123@localhost:5432/segmentation_db
 
 databases:
   - name: segmentation-db
+    databaseName: segmentation_db
+    user: martin
     plan: free
