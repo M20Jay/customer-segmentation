@@ -1,7 +1,7 @@
 # Customer Segmentation Pipeline
 **Author:** Martin James Ng'ang'a | [github.com/M20Jay](https://github.com/M20Jay)  
 **Status:** ✅ Complete — Week 3 of 15  
-**Stack:** KMeans · PCA · StandardScaler · MLflow · Evidently · Streamlit · FastAPI · PostgreSQL · Docker · Prometheus · AWS
+**Stack:** KMeans · PCA · StandardScaler · MLflow · Evidently · Streamlit · FastAPI · PostgreSQL · Docker · Prometheus · Render · AWS (pending)
 
 ---
 
@@ -26,17 +26,19 @@ This pipeline uses unsupervised machine learning to identify 4 distinct customer
 
 ## Live API
 
-**Base URL:** `http://your-ec2-ip:8001`  
-**Interactive Docs:** `http://your-ec2-ip:8001/docs`
+**Base URL:** `https://customer-segmentation-api-rwmx.onrender.com`  
+**Interactive Docs:** `https://customer-segmentation-api-rwmx.onrender.com/docs`
+
+> **Deployment note:** The API is currently hosted on Render's free tier which supports a single container only. This means the full production stack — PostgreSQL persistence, Prometheus monitoring, and Grafana dashboards — is not available on Render. Render's free tier does not support multi-container orchestration or persistent storage at scale. AWS EC2 deployment, which runs the complete docker-compose stack with all services, is pending AWS account activation and will replace Render as the primary production environment.
 
 ### Health Check
 ```bash
-curl http://your-ec2-ip:8001/health
+curl https://customer-segmentation-api-rwmx.onrender.com/health
 ```
 
 ### Predict Segment
 ```bash
-curl -X POST "http://your-ec2-ip:8001/segment" \
+curl -X POST "https://customer-segmentation-api-rwmx.onrender.com/segment" \
 -H "Content-Type: application/json" \
 -d '{
   "tenure": 34,
@@ -77,7 +79,8 @@ curl -X POST "http://your-ec2-ip:8001/segment" \
 | PostgreSQL | Storing segment predictions |
 | Docker | Containerisation |
 | Prometheus | API metrics collection |
-| AWS EC2 | Cloud deployment |
+| Render | Current deployment — free tier, single container |
+| AWS EC2 | Target production deployment — full stack |
 
 ---
 
@@ -143,6 +146,7 @@ python evidently_report.py
 | Docker containerisation | ✅ Complete |
 | Streamlit dashboard | ✅ Complete |
 | Evidently drift report | ✅ Complete |
+| Render deployment | ✅ Live |
 | AWS EC2 deployment | ⏳ Pending — AWS account activation |
 
 ---
