@@ -27,7 +27,7 @@ This pipeline uses unsupervised machine learning to identify 4 distinct customer
 ## Live API
 
 **Base URL:** `https://customer-segmentation-api-rwmx.onrender.com`  
-**Interactive Docs:** `http://52.57.213.229:8004/docs`
+**Interactive Docs:** `http://3.67.15.230:8004/docs`
 
 > **Deployment note:** The API is currently hosted on Render's free tier which supports a single container only. This means the full production stack — PostgreSQL persistence, Prometheus monitoring, and Grafana dashboards — is not available on Render. Render's free tier does not support multi-container orchestration or persistent storage at scale. AWS EC2 deployment, which runs the complete docker-compose stack with all services, is pending AWS account activation and will replace Render as the primary production environment.
 
